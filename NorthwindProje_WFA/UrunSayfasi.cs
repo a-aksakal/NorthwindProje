@@ -51,7 +51,7 @@ namespace NorthwindProje_WFA
 
         private void lstUrunler_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstUrunler.SelectedIndex <= 0) return;
+            if (lstUrunler.SelectedItem ==null) return;
             _seciliUrun = (Product)lstUrunler.SelectedItem;
             txtUrunAd.Text = _seciliUrun.ProductName;
             nFiyat.Value =(decimal)_seciliUrun.UnitPrice;
@@ -71,16 +71,35 @@ namespace NorthwindProje_WFA
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            Product product = new Product()
+            if (chbVar.Checked == Enabled)
             {
-                Category = (Category)cmbKategori.SelectedItem,
-                ProductName = txtUrunAd.Text,
-                UnitPrice = nFiyat.Value,
-                UnitsInStock = (short)nStok.Value,
-                //SupplierId =(int)cmbTedarikci.SelectedItem
-            };
-            _dbContext.Products.Add(product);
-            _dbContext.SaveChanges();
+                Product product = new Product()
+                {
+                    CategoryId = _dbContext.Categories.Where(x => x.CategoryName == cmbKategori.Text).Select(y => y.CategoryId).FirstOrDefault(),
+                    ProductName = txtUrunAd.Text,
+                    UnitPrice = nFiyat.Value,
+                    UnitsInStock = (short)nStok.Value,
+                    SupplierId = _dbContext.Suppliers.Where(x => x.CompanyName == cmbTedarikci.Text).Select(y => y.SupplierId).FirstOrDefault(),
+                    Discontinued = true,
+                };
+                _dbContext.Products.Add(product);
+                _dbContext.SaveChanges();
+            }
+            else 
+            {
+                Product product = new Product()
+                {
+                    CategoryId = _dbContext.Categories.Where(x=>x.CategoryName==cmbKategori.Text).Select(y => y.CategoryId).FirstOrDefault(),
+                    ProductName = txtUrunAd.Text,
+                    UnitPrice = nFiyat.Value,
+                    UnitsInStock = (short)nStok.Value,
+                    SupplierId = _dbContext.Suppliers.Where(x => x.CompanyName==cmbTedarikci.Text).Select(y=>y.SupplierId).FirstOrDefault(),
+                    Discontinued = false,
+                };
+                _dbContext.Products.Add(product);
+                _dbContext.SaveChanges();
+            }
+            
         }
     }
 }

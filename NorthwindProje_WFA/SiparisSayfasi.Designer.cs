@@ -31,20 +31,22 @@ namespace NorthwindProje_WFA
         {
             this.lstUrunler = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtMusteriId = new System.Windows.Forms.TextBox();
-            this.txtCalisanId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpSiparisTarihi = new System.Windows.Forms.DateTimePicker();
             this.dtpGondermeTarihi = new System.Windows.Forms.DateTimePicker();
             this.dtpUlastirmaTarihi = new System.Windows.Forms.DateTimePicker();
-            this.txtKargoTercih = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbKargoFirmasi = new System.Windows.Forms.ComboBox();
-            this.btnSiparis = new System.Windows.Forms.Button();
+            this.btnEkle = new System.Windows.Forms.Button();
+            this.nKargoUcret = new System.Windows.Forms.NumericUpDown();
+            this.cmbMusteriAdi = new System.Windows.Forms.ComboBox();
+            this.cmbCalisanAdi = new System.Windows.Forms.ComboBox();
+            this.btnTemizle = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.nKargoUcret)).BeginInit();
             this.SuspendLayout();
             // 
             // lstUrunler
@@ -55,6 +57,7 @@ namespace NorthwindProje_WFA
             this.lstUrunler.Name = "lstUrunler";
             this.lstUrunler.Size = new System.Drawing.Size(193, 304);
             this.lstUrunler.TabIndex = 0;
+            this.lstUrunler.SelectedIndexChanged += new System.EventHandler(this.lstUrunler_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -64,20 +67,6 @@ namespace NorthwindProje_WFA
             this.label1.Size = new System.Drawing.Size(47, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Müşteri";
-            // 
-            // txtMusteriId
-            // 
-            this.txtMusteriId.Location = new System.Drawing.Point(103, 12);
-            this.txtMusteriId.Name = "txtMusteriId";
-            this.txtMusteriId.Size = new System.Drawing.Size(159, 23);
-            this.txtMusteriId.TabIndex = 2;
-            // 
-            // txtCalisanId
-            // 
-            this.txtCalisanId.Location = new System.Drawing.Point(103, 41);
-            this.txtCalisanId.Name = "txtCalisanId";
-            this.txtCalisanId.Size = new System.Drawing.Size(159, 23);
-            this.txtCalisanId.TabIndex = 4;
             // 
             // label2
             // 
@@ -118,13 +107,6 @@ namespace NorthwindProje_WFA
             this.dtpUlastirmaTarihi.Size = new System.Drawing.Size(159, 23);
             this.dtpUlastirmaTarihi.TabIndex = 8;
             // 
-            // txtKargoTercih
-            // 
-            this.txtKargoTercih.Location = new System.Drawing.Point(103, 163);
-            this.txtKargoTercih.Name = "txtKargoTercih";
-            this.txtKargoTercih.Size = new System.Drawing.Size(159, 23);
-            this.txtKargoTercih.TabIndex = 9;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -148,9 +130,9 @@ namespace NorthwindProje_WFA
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(24, 166);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 15);
+            this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Kargo Tercihi";
+            this.label6.Text = "Kargo Ücreti";
             // 
             // label7
             // 
@@ -169,39 +151,82 @@ namespace NorthwindProje_WFA
             this.cmbKargoFirmasi.Size = new System.Drawing.Size(159, 23);
             this.cmbKargoFirmasi.TabIndex = 15;
             // 
-            // btnSiparis
+            // btnEkle
             // 
-            this.btnSiparis.Location = new System.Drawing.Point(187, 236);
-            this.btnSiparis.Name = "btnSiparis";
-            this.btnSiparis.Size = new System.Drawing.Size(75, 56);
-            this.btnSiparis.TabIndex = 16;
-            this.btnSiparis.Text = "Sipariş Ver";
-            this.btnSiparis.UseVisualStyleBackColor = true;
+            this.btnEkle.Location = new System.Drawing.Point(187, 236);
+            this.btnEkle.Name = "btnEkle";
+            this.btnEkle.Size = new System.Drawing.Size(75, 56);
+            this.btnEkle.TabIndex = 16;
+            this.btnEkle.Text = "Ekle";
+            this.btnEkle.UseVisualStyleBackColor = true;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
+            // 
+            // nKargoUcret
+            // 
+            this.nKargoUcret.DecimalPlaces = 2;
+            this.nKargoUcret.Location = new System.Drawing.Point(102, 164);
+            this.nKargoUcret.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.nKargoUcret.Name = "nKargoUcret";
+            this.nKargoUcret.Size = new System.Drawing.Size(160, 23);
+            this.nKargoUcret.TabIndex = 17;
+            this.nKargoUcret.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // cmbMusteriAdi
+            // 
+            this.cmbMusteriAdi.FormattingEnabled = true;
+            this.cmbMusteriAdi.Location = new System.Drawing.Point(102, 12);
+            this.cmbMusteriAdi.Name = "cmbMusteriAdi";
+            this.cmbMusteriAdi.Size = new System.Drawing.Size(159, 23);
+            this.cmbMusteriAdi.TabIndex = 18;
+            // 
+            // cmbCalisanAdi
+            // 
+            this.cmbCalisanAdi.FormattingEnabled = true;
+            this.cmbCalisanAdi.Location = new System.Drawing.Point(103, 41);
+            this.cmbCalisanAdi.Name = "cmbCalisanAdi";
+            this.cmbCalisanAdi.Size = new System.Drawing.Size(159, 23);
+            this.cmbCalisanAdi.TabIndex = 19;
+            // 
+            // btnTemizle
+            // 
+            this.btnTemizle.Location = new System.Drawing.Point(106, 236);
+            this.btnTemizle.Name = "btnTemizle";
+            this.btnTemizle.Size = new System.Drawing.Size(75, 56);
+            this.btnTemizle.TabIndex = 20;
+            this.btnTemizle.Text = "Temizle";
+            this.btnTemizle.UseVisualStyleBackColor = true;
+            this.btnTemizle.Click += new System.EventHandler(this.btnTemizle_Click);
             // 
             // SiparisSayfasi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 341);
-            this.Controls.Add(this.btnSiparis);
+            this.Controls.Add(this.btnTemizle);
+            this.Controls.Add(this.cmbCalisanAdi);
+            this.Controls.Add(this.cmbMusteriAdi);
+            this.Controls.Add(this.nKargoUcret);
+            this.Controls.Add(this.btnEkle);
             this.Controls.Add(this.cmbKargoFirmasi);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtKargoTercih);
             this.Controls.Add(this.dtpUlastirmaTarihi);
             this.Controls.Add(this.dtpGondermeTarihi);
             this.Controls.Add(this.dtpSiparisTarihi);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCalisanId);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtMusteriId);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lstUrunler);
             this.Name = "SiparisSayfasi";
             this.Text = "SiparisSayfasi";
             this.Load += new System.EventHandler(this.SiparisSayfasi_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.nKargoUcret)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,19 +236,20 @@ namespace NorthwindProje_WFA
 
         private System.Windows.Forms.ListBox lstUrunler;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtMusteriId;
-        private System.Windows.Forms.TextBox txtCalisanId;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpSiparisTarihi;
         private System.Windows.Forms.DateTimePicker dtpGondermeTarihi;
         private System.Windows.Forms.DateTimePicker dtpUlastirmaTarihi;
-        private System.Windows.Forms.TextBox txtKargoTercih;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cmbKargoFirmasi;
-        private System.Windows.Forms.Button btnSiparis;
+        private System.Windows.Forms.Button btnEkle;
+        private System.Windows.Forms.NumericUpDown nKargoUcret;
+        private System.Windows.Forms.ComboBox cmbMusteriAdi;
+        private System.Windows.Forms.ComboBox cmbCalisanAdi;
+        private System.Windows.Forms.Button btnTemizle;
     }
 }
