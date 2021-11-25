@@ -33,6 +33,7 @@ namespace NorthwindProje_WFA
             this.kategoriMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.urunSayfasiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.siparisSayfasiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.çalışanSayfasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,8 @@ namespace NorthwindProje_WFA
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kategoriMenuToolStripMenuItem,
             this.urunSayfasiToolStripMenuItem,
-            this.siparisSayfasiToolStripMenuItem});
+            this.siparisSayfasiToolStripMenuItem,
+            this.çalışanSayfasıToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(607, 24);
@@ -69,6 +71,13 @@ namespace NorthwindProje_WFA
             this.siparisSayfasiToolStripMenuItem.Text = "Siparis Sayfasi";
             this.siparisSayfasiToolStripMenuItem.Click += new System.EventHandler(this.siparisSayfasiToolStripMenuItem_Click);
             // 
+            // çalışanSayfasıToolStripMenuItem
+            // 
+            this.çalışanSayfasıToolStripMenuItem.Name = "çalışanSayfasıToolStripMenuItem";
+            this.çalışanSayfasıToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
+            this.çalışanSayfasıToolStripMenuItem.Text = "Çalışan Sayfası";
+            this.çalışanSayfasıToolStripMenuItem.Click += new System.EventHandler(this.çalışanSayfasıToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -92,6 +101,7 @@ namespace NorthwindProje_WFA
         private System.Windows.Forms.ToolStripMenuItem kategoriMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem urunSayfasiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem siparisSayfasiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem çalışanSayfasıToolStripMenuItem;
     }
 }
 

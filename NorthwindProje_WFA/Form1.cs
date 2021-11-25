@@ -40,5 +40,13 @@ namespace NorthwindProje_WFA
             siparisSayfasi.Dock = DockStyle.Fill;
             siparisSayfasi.Show();
         }
+
+        private void çalışanSayfasıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CalisanlarMenu calisanlarMenu = new CalisanlarMenu();
+            calisanlarMenu.MdiParent = this;
+            calisanlarMenu.Dock = DockStyle.Fill;
+            calisanlarMenu.Show();
+        }
     }
 }
