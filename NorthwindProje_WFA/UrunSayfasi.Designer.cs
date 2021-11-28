@@ -176,9 +176,9 @@ namespace NorthwindProje_WFA
             this.chbVar.AutoSize = true;
             this.chbVar.Location = new System.Drawing.Point(96, 118);
             this.chbVar.Name = "chbVar";
-            this.chbVar.Size = new System.Drawing.Size(42, 19);
+            this.chbVar.Size = new System.Drawing.Size(45, 19);
             this.chbVar.TabIndex = 16;
-            this.chbVar.Text = "Var";
+            this.chbVar.Text = "Yok";
             this.chbVar.UseVisualStyleBackColor = true;
             // 
             // UrunSayfasi

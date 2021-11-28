@@ -41,10 +41,8 @@ namespace NorthwindProje_WFA
             this.label4 = new System.Windows.Forms.Label();
             this.txtPozisyon = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbBolge = new System.Windows.Forms.ComboBox();
-            this.cmbIl = new System.Windows.Forms.ComboBox();
+            this.dtpIseGiris = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // lstCalisanlar
@@ -141,20 +139,11 @@ namespace NorthwindProje_WFA
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(55, 196);
+            this.label5.Location = new System.Drawing.Point(45, 204);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 15);
+            this.label5.Size = new System.Drawing.Size(47, 15);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Bölge";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(79, 225);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 15);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "İl";
+            this.label5.Text = "İşe Giriş";
             // 
             // label7
             // 
@@ -165,32 +154,20 @@ namespace NorthwindProje_WFA
             this.label7.TabIndex = 17;
             this.label7.Text = "Doğum Tarihi";
             // 
-            // cmbBolge
+            // dtpIseGiris
             // 
-            this.cmbBolge.FormattingEnabled = true;
-            this.cmbBolge.Location = new System.Drawing.Point(98, 193);
-            this.cmbBolge.Name = "cmbBolge";
-            this.cmbBolge.Size = new System.Drawing.Size(170, 23);
-            this.cmbBolge.TabIndex = 18;
-            this.cmbBolge.SelectedIndexChanged += new System.EventHandler(this.cmbBolge_SelectedIndexChanged);
-            // 
-            // cmbIl
-            // 
-            this.cmbIl.FormattingEnabled = true;
-            this.cmbIl.Location = new System.Drawing.Point(98, 222);
-            this.cmbIl.Name = "cmbIl";
-            this.cmbIl.Size = new System.Drawing.Size(170, 23);
-            this.cmbIl.TabIndex = 19;
+            this.dtpIseGiris.Location = new System.Drawing.Point(98, 198);
+            this.dtpIseGiris.Name = "dtpIseGiris";
+            this.dtpIseGiris.Size = new System.Drawing.Size(170, 23);
+            this.dtpIseGiris.TabIndex = 18;
             // 
             // CalisanlarMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 355);
-            this.Controls.Add(this.cmbIl);
-            this.Controls.Add(this.cmbBolge);
+            this.Controls.Add(this.dtpIseGiris);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPozisyon);
@@ -225,9 +202,7 @@ namespace NorthwindProje_WFA
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPozisyon;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmbBolge;
-        private System.Windows.Forms.ComboBox cmbIl;
+        private System.Windows.Forms.DateTimePicker dtpIseGiris;
     }
 }

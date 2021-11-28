@@ -26,27 +26,13 @@ namespace NorthwindProje_WFA
             lstCalisanlar.DisplayMember = "FirstName";
         }
 
-        Models.Region _seciliBolge;
+        
         private void CalisanlarMenu_Load(object sender, EventArgs e)
         {
             ListeyiDoldur();
-            CmbBolgeDoldur();
         }
         
-        private void CmbBolgeDoldur()
-        {
 
-            cmbBolge.DataSource = _dbContext.Regions.ToList();
-            cmbBolge.DisplayMember = "RegionDescription";
-
-        }
-
-        private void cmbBolge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbBolge.SelectedItem == null) return;
-            _seciliBolge = (Models.Region)cmbBolge.SelectedItem;
-            cmbIl.DataSource = _dbContext.Territories.Where(x => x.RegionId == _seciliBolge.RegionId).Select(x => x.TerritoryDescription).ToList();
-        }
 
         Employee _seciliCalisan;
         private void lstCalisanlar_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,8 +45,7 @@ namespace NorthwindProje_WFA
             dtpDogum.Value = _seciliCalisan.BirthDate.Value;
             txtUnvan.Text = _seciliCalisan.TitleOfCourtesy;
             txtPozisyon.Text = _seciliCalisan.Title;
-            cmbIl.Text = _dbContext.EmployeeTerritories.Where(et=>et.EmployeeId==_seciliCalisan.EmployeeId).Join(_dbContext.Territories, et => et.TerritoryId, t => t.TerritoryId, (et, t) => new {t.TerritoryDescription}).Select(t=>t.TerritoryDescription).FirstOrDefault();
-            cmbBolge.Text = _dbContext.Territories.Where(t=>t.TerritoryDescription==cmbIl.Text).Join(_dbContext.Regions, t => t.RegionId, r=>r.RegionId, (t, r) => new {r.RegionDescription}).Select(r=>r.RegionDescription).FirstOrDefault();
+            dtpIseGiris.Value = _seciliCalisan.HireDate.Value;
 
         }
 
@@ -73,7 +58,7 @@ namespace NorthwindProje_WFA
                 BirthDate = dtpDogum.Value,
                 TitleOfCourtesy = txtUnvan.Text,
                 Title = txtPozisyon.Text,
-                Region = cmbBolge.Text,
+                HireDate = dtpIseGiris.Value
 
             };
             _dbContext.Add(employee);
