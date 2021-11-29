@@ -37,6 +37,8 @@ namespace NorthwindProje_WFA
             this.satışBölgesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ılSayfasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bolgeSayfasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tedarikçiSayfasıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.siparişDetayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,9 @@ namespace NorthwindProje_WFA
             this.çalışanSayfasıToolStripMenuItem,
             this.satışBölgesiToolStripMenuItem,
             this.ılSayfasıToolStripMenuItem,
-            this.bolgeSayfasıToolStripMenuItem});
+            this.bolgeSayfasıToolStripMenuItem,
+            this.tedarikçiSayfasıToolStripMenuItem,
+            this.siparişDetayToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(126, 331);
@@ -106,6 +110,20 @@ namespace NorthwindProje_WFA
             this.bolgeSayfasıToolStripMenuItem.Text = "Bolge Sayfası";
             this.bolgeSayfasıToolStripMenuItem.Click += new System.EventHandler(this.bolgeSayfasıToolStripMenuItem_Click);
             // 
+            // tedarikçiSayfasıToolStripMenuItem
+            // 
+            this.tedarikçiSayfasıToolStripMenuItem.Name = "tedarikçiSayfasıToolStripMenuItem";
+            this.tedarikçiSayfasıToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.tedarikçiSayfasıToolStripMenuItem.Text = "Tedarikçi Sayfası";
+            this.tedarikçiSayfasıToolStripMenuItem.Click += new System.EventHandler(this.tedarikçiSayfasıToolStripMenuItem_Click);
+            // 
+            // siparişDetayToolStripMenuItem
+            // 
+            this.siparişDetayToolStripMenuItem.Name = "siparişDetayToolStripMenuItem";
+            this.siparişDetayToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.siparişDetayToolStripMenuItem.Text = "Sipariş Detay";
+            this.siparişDetayToolStripMenuItem.Click += new System.EventHandler(this.siparişDetayToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -133,6 +151,8 @@ namespace NorthwindProje_WFA
         private System.Windows.Forms.ToolStripMenuItem satışBölgesiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ılSayfasıToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bolgeSayfasıToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tedarikçiSayfasıToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem siparişDetayToolStripMenuItem;
     }
 }
 

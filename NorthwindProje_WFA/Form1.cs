@@ -72,5 +72,21 @@ namespace NorthwindProje_WFA
             bolgeSayfasi.Dock = DockStyle.Fill;
             bolgeSayfasi.Show();
         }
+
+        private void tedarikçiSayfasıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TedarikciSayfasi tedarikciSayfasi =new TedarikciSayfasi();
+            tedarikciSayfasi.MdiParent = this;
+            tedarikciSayfasi.Dock=DockStyle.Fill;
+            tedarikciSayfasi.Show();
+        }
+
+        private void siparişDetayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SiparisDetay siparisDetay =new SiparisDetay();
+            siparisDetay.MdiParent = this;
+            siparisDetay.Dock=DockStyle.Fill;
+            siparisDetay.Show();
+        }
     }
 }

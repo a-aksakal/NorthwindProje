@@ -31,5 +31,7 @@ namespace NorthwindProje_WFA.Models
         public virtual Employee Employee { get; set; }
         public virtual Shipper ShipViaNavigation { get; set; }
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+
     }
 }
